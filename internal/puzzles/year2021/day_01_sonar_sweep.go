@@ -5,7 +5,7 @@ import "math"
 
 // Sonar Sweep Part 1 computes the number of times that a depth measurement
 // increases.
-func sonarSweepPart1(depths []int) int {
+func SonarSweepPart1(depths []int) int {
 	prev := math.MaxInt32
 	incCount := 0
 	for _, depth := range depths {
@@ -19,7 +19,7 @@ func sonarSweepPart1(depths []int) int {
 
 // Sonar Sweep Part 2 computes the number of times that a sliding window of
 // three consecutive depths increases.
-func sonarSweepPart2(depths []int) int {
+func SonarSweepPart2(depths []int) int {
 	incCount := 0
 	for i := 1; i < len(depths)-2; i++ {
 		sumA := depths[i-1] + depths[i] + depths[i+1]
