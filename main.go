@@ -14,4 +14,8 @@ func main() {
 		year2021.SonarSweepPart1(year2021data.SonarSweepPuzzleData))
 	fmt.Printf("2021 Day 01 Part 2: %v\n",
 		year2021.SonarSweepPart2(year2021data.SonarSweepPuzzleData))
+	fmt.Printf("2021 Day 02 Part 1: %v\n",
+		year2021.DivePart1(year2021data.DivePuzzleData))
+	fmt.Printf("2021 Day 02 Part 2: %v\n",
+		year2021.DivePart2(year2021data.DivePuzzleData))
 }
