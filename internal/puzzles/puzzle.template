@@ -1,17 +1,16 @@
 package year{year}
 
 import (
-	"math"
-
 	"github.com/lanphiergm/adventofcodego/internal/utils"
 )
 
-// {puzzlename} Part 1 computes {part 1 description}
-func {puzzlename}Part1(filename string) int {
-	return 0
+// {puzzlename} Part 1 computes {DESCRIPTION}
+func {classname}Part1(filename string) int {
+	data := utils.ReadStrings(filename)
+	return len(data)
 }
 
-// {puzzlename} Part 2 computes {part 2 description}
-func {puzzlename}Part2(filename string) int {
+// {puzzlename} Part 2 computes {DESCRIPTION}
+func {classname}Part2(filename string) int {
 	return 0
 }
