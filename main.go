@@ -18,4 +18,8 @@ func main() {
 		year2021.DivePart1(year2021data.DivePuzzleData))
 	fmt.Printf("2021 Day 02 Part 2: %v\n",
 		year2021.DivePart2(year2021data.DivePuzzleData))
+	fmt.Printf("2021 Day 03 Part 1: %v\n",
+		year2021.BinaryDiagnosticPart1(year2021data.BinaryDiagnosticPuzzleData))
+	fmt.Printf("2021 Day 03 Part 2: %v\n",
+		year2021.BinaryDiagnosticPart2(year2021data.BinaryDiagnosticPuzzleData))
 }
