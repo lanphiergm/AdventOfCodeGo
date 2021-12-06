@@ -4,10 +4,13 @@ import (
 	"math"
 	"strconv"
 	"strings"
+
+	"github.com/lanphiergm/adventofcodego/internal/utils"
 )
 
 // Binary Diagnostic Part 1 computes the power consumption of the submarine
-func BinaryDiagnosticPart1(report []string) int {
+func BinaryDiagnosticPart1(filename string) int {
+	report := utils.ReadStrings(filename)
 	bits := len(report[0])
 	bitCounts := make([]int, bits)
 
@@ -39,7 +42,8 @@ func BinaryDiagnosticPart1(report []string) int {
 }
 
 // Binary Diagnostic Part 2 computes the life support rating of the submarine
-func BinaryDiagnosticPart2(report []string) int {
+func BinaryDiagnosticPart2(filename string) int {
+	report := utils.ReadStrings(filename)
 	oxygenGeneratorRating := GetRating(report, true, '1')
 	co2ScrubberRating := GetRating(report, false, '0')
 	return oxygenGeneratorRating * co2ScrubberRating

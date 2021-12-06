@@ -4,14 +4,17 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"github.com/lanphiergm/adventofcodego/internal/utils"
 )
 
 // Dive! Part 1 computes the horizontal position and depth after a series of
 // commands are executed
-func DivePart1(commands []string) int {
+func DivePart1(filename string) int {
 	hPos := 0
 	depth := 0
 
+	commands := utils.ReadStrings(filename)
 	for _, command := range commands {
 		s := strings.Split(command, " ")
 		v, err := strconv.Atoi(s[1])
@@ -36,11 +39,12 @@ func DivePart1(commands []string) int {
 
 // Dive! Part 2 computes the horizontal position and depth after a series of
 // commands are executed with a different understanding of the command syntax
-func DivePart2(commands []string) int {
+func DivePart2(filename string) int {
 	hPos := 0
 	depth := 0
 	aim := 0
 
+	commands := utils.ReadStrings(filename)
 	for _, command := range commands {
 		s := strings.Split(command, " ")
 		v, err := strconv.Atoi(s[1])
