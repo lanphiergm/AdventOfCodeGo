@@ -25,4 +25,8 @@ func main() {
 		year2021.GiantSquidPart1("data/year2021/day_04_puzzle_data.txt"))
 	fmt.Printf("2021 Day 04 Part 2: %v\n",
 		year2021.GiantSquidPart2("data/year2021/day_04_puzzle_data.txt"))
+	fmt.Printf("2021 Day 05 Part 1: %v\n",
+		year2021.HydrothermalVenturePart1("data/year2021/day_05_puzzle_data.txt"))
+	fmt.Printf("2021 Day 05 Part 2: %v\n",
+		year2021.HydrothermalVenturePart2("data/year2021/day_05_puzzle_data.txt"))
 }
