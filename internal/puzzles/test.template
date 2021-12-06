@@ -1,0 +1,35 @@
+package year{year}
+
+import (
+	"testing"
+
+	"github.com/lanphiergm/adventofcodego/internal/utils"
+)
+
+// Tests {puzzlename} Part 1 with the sample data
+func Test{puzzlename}Part1Sample(t *testing.T) {
+	expected := 0
+	actual := {puzzlename}Part1("../../../data/year{year}/day_{day}_sample_data.txt")
+	utils.AssertAreEqual(t, expected, actual)
+}
+
+// Tests {puzzlename} Part 1 with the real puzzle data
+func Test{puzzlename}Part1Puzzle(t *testing.T) {
+	expected := 0
+	actual := {puzzlename}Part1("../../../data/year{year}/day_{day}_puzzle_data.txt")
+	utils.AssertAreEqual(t, expected, actual)
+}
+
+// Tests {puzzlename} Part 2 with the sample data
+func Test{puzzlename}Part2Sample(t *testing.T) {
+	expected := 0
+	actual := {puzzlename}Part2("../../../data/year{year}/day_{day}_sample_data.txt")
+	utils.AssertAreEqual(t, expected, actual)
+}
+
+// Tests {puzzlename} Part 2 with the real puzzle data
+func Test{puzzlename}Part2Puzzle(t *testing.T) {
+	expected := 0
+	actual := {puzzlename}Part2("../../../data/year{year}/day_{day}_puzzle_data.txt")
+	utils.AssertAreEqual(t, expected, actual)
+}
