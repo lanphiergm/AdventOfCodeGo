@@ -18,9 +18,6 @@ func HydrothermalVenturePart2(filename string) int {
 	return findDangerousAreas(filename, true)
 }
 
-// Define functions to determine if a loop should continue
-type keepGoingFunc func(int, int) bool
-
 func keepGoingAscending(counter int, end int) bool {
 	return counter <= end
 }
