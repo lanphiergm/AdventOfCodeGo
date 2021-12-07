@@ -13,7 +13,5 @@ touch ../../data/year$year/day_${day}_sample_data.txt
 
 echo ""
 echo "Add to main.go:"
-echo "    fmt.Printf(\"$year Day $day Part 1: %v\\n\","
-echo "        year$year.${classname}Part1(\"data/year$year/day_${day}_puzzle_data.txt\"))"
-echo "    fmt.Printf(\"$year Day $day Part 2: %v\\n\","
-echo "        year$year.${classname}Part2(\"data/year$year/day_${day}_puzzle_data.txt\"))"
+echo "    runPuzzle($year, $day, 1, year$year.${classname}Part1)"
+echo "    runPuzzle($year, $day, 2, year$year.${classname}Part2)"
