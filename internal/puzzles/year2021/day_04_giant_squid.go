@@ -105,12 +105,7 @@ func scoreBoard(board [][]int, draws map[int]struct{}, lastDraw int) int {
 
 func parseData(filename string) ([]int, [][][]int) {
 	lines := utils.ReadStrings(filename)
-	drawStrs := strings.Split(lines[0], ",")
-	draws := make([]int, len(drawStrs))
-	for i, n := range drawStrs {
-		draw, _ := strconv.ParseInt(n, 10, 32)
-		draws[i] = int(draw)
-	}
+	draws := utils.ParseInts(lines[0])
 
 	numBoards := (len(lines) - 1) / 6
 	boards := make([][][]int, numBoards)
