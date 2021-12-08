@@ -85,7 +85,7 @@ func GetRating(report []string, keepMostCommon bool, tieRune rune) int {
 			if strings.HasPrefix(reportCopy[j], ratingStr) {
 				j++
 			} else {
-				reportCopy = remove(reportCopy, j)
+				reportCopy = utils.RemoveStr(reportCopy, j)
 			}
 		}
 
@@ -97,9 +97,4 @@ func GetRating(report []string, keepMostCommon bool, tieRune rune) int {
 
 	rating, _ := strconv.ParseInt(ratingStr, 2, 32)
 	return int(rating)
-}
-
-func remove(s []string, i int) []string {
-	s[i] = s[len(s)-1]
-	return s[:len(s)-1]
 }

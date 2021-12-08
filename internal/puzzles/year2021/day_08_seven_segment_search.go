@@ -66,7 +66,7 @@ func decodeEntry(entry string) int {
 	for i, pattern := range len5 {
 		if isSubset(pattern, digits[1]) {
 			digits[3] = pattern
-			len5 = removeStr(len5, i)
+			len5 = utils.RemoveStr(len5, i)
 			break
 		}
 	}
@@ -75,7 +75,7 @@ func decodeEntry(entry string) int {
 	for i, pattern := range len6 {
 		if isSubset(pattern, digits[3]) {
 			digits[9] = pattern
-			len6 = removeStr(len6, i)
+			len6 = utils.RemoveStr(len6, i)
 			break
 		}
 	}
@@ -84,7 +84,7 @@ func decodeEntry(entry string) int {
 	for i, pattern := range len6 {
 		if isSubset(pattern, digits[1]) {
 			digits[0] = pattern
-			len6 = removeStr(len6, i)
+			len6 = utils.RemoveStr(len6, i)
 			break
 		}
 	}
@@ -96,7 +96,7 @@ func decodeEntry(entry string) int {
 	for i, pattern := range len5 {
 		if isSubset(digits[9], pattern) {
 			digits[5] = pattern
-			len5 = removeStr(len5, i)
+			len5 = utils.RemoveStr(len5, i)
 			break
 		}
 	}
@@ -131,9 +131,4 @@ func findDigit(pattern string, digits [10]string) string {
 		}
 	}
 	return ""
-}
-
-func removeStr(s []string, i int) []string {
-	s[i] = s[len(s)-1]
-	return s[:len(s)-1]
 }
