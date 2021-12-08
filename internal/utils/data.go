@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -14,8 +13,7 @@ func ParseInts(csv string) []int {
 	strs := strings.Split(csv, ",")
 	values := make([]int, len(strs))
 	for i, n := range strs {
-		v, _ := strconv.ParseInt(n, 10, 32)
-		values[i] = int(v)
+		values[i] = Atoi(n)
 	}
 	return values
 }
@@ -41,8 +39,7 @@ func ReadInts(path string) []int {
 	var lines []int
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		val, _ := strconv.ParseInt(scanner.Text(), 10, 32)
-		lines = append(lines, int(val))
+		lines = append(lines, Atoi(scanner.Text()))
 	}
 
 	if err := scanner.Err(); err != nil {

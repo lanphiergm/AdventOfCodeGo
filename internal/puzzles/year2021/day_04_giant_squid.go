@@ -1,7 +1,6 @@
 package year2021
 
 import (
-	"strconv"
 	"strings"
 
 	"github.com/lanphiergm/adventofcodego/internal/utils"
@@ -115,10 +114,9 @@ func parseData(filename string) ([]int, [][][]int) {
 			boards[i][j] = make([]int, 5)
 			cols := strings.Split(lines[2+6*i+j], " ")
 			k := 0
-			for _, valStr := range cols {
-				if valStr != "" {
-					val, _ := strconv.ParseInt(valStr, 10, 32)
-					boards[i][j][k] = int(val)
+			for _, val := range cols {
+				if val != "" {
+					boards[i][j][k] = utils.Atoi(val)
 					k++
 				}
 			}

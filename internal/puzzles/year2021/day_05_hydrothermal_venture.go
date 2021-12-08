@@ -3,7 +3,6 @@ package year2021
 import (
 	"math"
 	"regexp"
-	"strconv"
 
 	"github.com/lanphiergm/adventofcodego/internal/utils"
 )
@@ -80,9 +79,6 @@ func isDiagonal(x1 int, y1 int, x2 int, y2 int) bool {
 
 func parseLine(r *regexp.Regexp, line string) (int, int, int, int) {
 	result := r.FindAllStringSubmatch(line, -1)
-	x1, _ := strconv.ParseInt(result[0][1], 10, 32)
-	y1, _ := strconv.ParseInt(result[0][2], 10, 32)
-	x2, _ := strconv.ParseInt(result[0][3], 10, 32)
-	y2, _ := strconv.ParseInt(result[0][4], 10, 32)
-	return int(x1), int(y1), int(x2), int(y2)
+	return utils.Atoi(result[0][1]), utils.Atoi(result[0][2]),
+		utils.Atoi(result[0][3]), utils.Atoi(result[0][4])
 }
