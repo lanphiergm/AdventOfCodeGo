@@ -31,6 +31,8 @@ func main() {
 	runPuzzle(2021, 9, 2, year2021.SmokeBasinPart2)
 	runPuzzle(2021, 10, 1, year2021.SyntaxScoringPart1)
 	runPuzzle(2021, 10, 2, year2021.SyntaxScoringPart2)
+	runPuzzle(2021, 11, 1, year2021.DumboOctopusPart1)
+	runPuzzle(2021, 11, 2, year2021.DumboOctopusPart2)
 
 	min, mean, max := computeStats()
 	fmt.Printf("===============================================================\n")
