@@ -18,8 +18,8 @@ func TransparentOrigamiPart1(filename string) interface{} {
 func TransparentOrigamiPart2(filename string) interface{} {
 	coords, folds := parseOrigamiData(filename)
 	coords = performFolds(coords, folds)
-	printCoords(coords)
-	return len(coords)
+	//printCoords(coords)
+	return translateCoords(coords)
 }
 
 func performFolds(coords map[coord]struct{}, folds []string) map[coord]struct{} {
@@ -88,6 +88,51 @@ func printCoords(coords map[coord]struct{}) {
 		fmt.Printf("\n")
 	}
 }
+
+func translateCoords(coords map[coord]struct{}) string {
+	var grid [6][39]bool
+	for c := range coords {
+		grid[c.y][c.x] = true
+	}
+
+	code := ""
+	for i := 0; i < 39; i += 5 {
+		for key, val := range letters {
+			isMatch := true
+			for j := 0; j < 6; j++ {
+				for k := 0; k < 4; k++ {
+					if key[j][k] != grid[j][i+k] {
+						isMatch = false
+						break
+					}
+				}
+				if !isMatch {
+					break
+				}
+			}
+			if isMatch {
+				code += val
+				break
+			}
+		}
+	}
+
+	return code
+}
+
+var letterE = [6][4]bool{{true, true, true, true}, {true, false, false, false}, {true, true, true, false},
+	{true, false, false, false}, {true, false, false, false}, {true, true, true, true}}
+var letterG = [6][4]bool{{false, true, true, false}, {true, false, false, true}, {true, false, false, false},
+	{true, false, true, true}, {true, false, false, true}, {false, true, true, true}}
+var letterH = [6][4]bool{{true, false, false, true}, {true, false, false, true}, {true, true, true, true},
+	{true, false, false, true}, {true, false, false, true}, {true, false, false, true}}
+var letterJ = [6][4]bool{{false, false, true, true}, {false, false, false, true}, {false, false, false, true},
+	{false, false, false, true}, {true, false, false, true}, {false, true, true, false}}
+var letterL = [6][4]bool{{true, false, false, false}, {true, false, false, false}, {true, false, false, false},
+	{true, false, false, false}, {true, false, false, false}, {true, true, true, true}}
+var letterU = [6][4]bool{{true, false, false, true}, {true, false, false, true}, {true, false, false, true},
+	{true, false, false, true}, {true, false, false, true}, {false, true, true, false}}
+var letters = map[[6][4]bool]string{letterE: "E", letterG: "G", letterH: "H", letterJ: "J", letterL: "L", letterU: "U"}
 
 func parseOrigamiData(filename string) (map[coord]struct{}, []string) {
 	data := utils.ReadStrings(filename)

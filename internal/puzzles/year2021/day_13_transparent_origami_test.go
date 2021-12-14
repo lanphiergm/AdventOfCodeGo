@@ -22,7 +22,7 @@ func TestTransparentOrigamiPart1Puzzle(t *testing.T) {
 
 // Tests Transparent Origami Part 2 with the real puzzle data
 func TestTransparentOrigamiPart2Puzzle(t *testing.T) {
-	expected := 98
+	expected := "LGHEGUEJ"
 	actual := TransparentOrigamiPart2("../../../data/year2021/day_13_puzzle_data.txt")
 	utils.AssertAreEqual(t, expected, actual)
 }
