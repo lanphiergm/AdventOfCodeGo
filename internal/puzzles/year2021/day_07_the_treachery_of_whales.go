@@ -8,13 +8,13 @@ import (
 
 // The Treachery of Whales Part 1 computes the minimum fuel consumption assuming a
 // constant cost function
-func TheTreacheryofWhalesPart1(filename string) int {
+func TheTreacheryofWhalesPart1(filename string) interface{} {
 	return findMinFuelConsumption(filename, sumLinearFuelConsumption)
 }
 
 // The Treachery of Whales Part 2 computes the minimum fuel consumption assuming an
 // increasing cost function
-func TheTreacheryofWhalesPart2(filename string) int {
+func TheTreacheryofWhalesPart2(filename string) interface{} {
 	return findMinFuelConsumption(filename, sumIncreasingFuelConsumption)
 }
 

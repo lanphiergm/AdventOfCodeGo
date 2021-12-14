@@ -5,12 +5,12 @@ import (
 )
 
 // {puzzlename} Part 1 computes {DESCRIPTION}
-func {classname}Part1(filename string) int {
+func {classname}Part1(filename string) interface{} {
 	data := utils.ReadStrings(filename)
 	return len(data)
 }
 
 // {puzzlename} Part 2 computes {DESCRIPTION}
-func {classname}Part2(filename string) int {
+func {classname}Part2(filename string) interface{} {
 	return 0
 }

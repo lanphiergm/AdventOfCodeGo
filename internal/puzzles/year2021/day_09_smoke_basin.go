@@ -7,7 +7,7 @@ import (
 )
 
 // Smoke Basin Part 1 computes the sum of all risk levels for the heightmap
-func SmokeBasinPart1(filename string) int {
+func SmokeBasinPart1(filename string) interface{} {
 	data := utils.ReadStrings(filename)
 	sum := 0
 	for i, row := range data {
@@ -32,7 +32,7 @@ func SmokeBasinPart1(filename string) int {
 }
 
 // Smoke Basin Part 2 computes the product of the size of the three largest basins
-func SmokeBasinPart2(filename string) int {
+func SmokeBasinPart2(filename string) interface{} {
 	data := utils.ReadStrings(filename)
 	basinSizes := []int{}
 	for i, row := range data {

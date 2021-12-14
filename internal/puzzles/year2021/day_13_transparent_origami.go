@@ -8,14 +8,14 @@ import (
 )
 
 // Transparent Origami Part 1 computes the number of visible dots after one fold
-func TransparentOrigamiPart1(filename string) int {
+func TransparentOrigamiPart1(filename string) interface{} {
 	coords, folds := parseOrigamiData(filename)
 	coords = performFolds(coords, folds[:1])
 	return len(coords)
 }
 
 // Transparent Origami Part 2 computes the activation code
-func TransparentOrigamiPart2(filename string) int {
+func TransparentOrigamiPart2(filename string) interface{} {
 	coords, folds := parseOrigamiData(filename)
 	coords = performFolds(coords, folds)
 	printCoords(coords)

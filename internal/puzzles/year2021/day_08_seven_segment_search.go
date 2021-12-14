@@ -9,7 +9,7 @@ import (
 
 // Seven Segment Search Part 1 computes the number of 1s, 4s, 7s, and 8s that
 // appear in the output
-func SevenSegmentSearchPart1(filename string) int {
+func SevenSegmentSearchPart1(filename string) interface{} {
 	notes := utils.ReadStrings(filename)
 	counter := 0
 	for _, entry := range notes {
@@ -24,7 +24,7 @@ func SevenSegmentSearchPart1(filename string) int {
 }
 
 // Seven Segment Search Part 2 computes the sum of all output values
-func SevenSegmentSearchPart2(filename string) int {
+func SevenSegmentSearchPart2(filename string) interface{} {
 	notes := utils.ReadStrings(filename)
 	sum := 0
 	for _, entry := range notes {

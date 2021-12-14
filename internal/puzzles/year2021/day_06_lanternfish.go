@@ -5,12 +5,12 @@ import (
 )
 
 // Lanternfish Part 1 computes the number of lanternfish after 80 days
-func LanternfishPart1(filename string) int {
+func LanternfishPart1(filename string) interface{} {
 	return countLanternfish(filename, 80)
 }
 
 // Lanternfish Part 2 computes the number of lanternfish after 256 days
-func LanternfishPart2(filename string) int {
+func LanternfishPart2(filename string) interface{} {
 	return countLanternfish(filename, 256)
 }
 

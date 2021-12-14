@@ -9,7 +9,7 @@ import (
 )
 
 // Binary Diagnostic Part 1 computes the power consumption of the submarine
-func BinaryDiagnosticPart1(filename string) int {
+func BinaryDiagnosticPart1(filename string) interface{} {
 	report := utils.ReadStrings(filename)
 	bits := len(report[0])
 	bitCounts := make([]int, bits)
@@ -42,7 +42,7 @@ func BinaryDiagnosticPart1(filename string) int {
 }
 
 // Binary Diagnostic Part 2 computes the life support rating of the submarine
-func BinaryDiagnosticPart2(filename string) int {
+func BinaryDiagnosticPart2(filename string) interface{} {
 	report := utils.ReadStrings(filename)
 	oxygenGeneratorRating := GetRating(report, true, '1')
 	co2ScrubberRating := GetRating(report, false, '0')

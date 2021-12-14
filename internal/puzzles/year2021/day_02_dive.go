@@ -10,7 +10,7 @@ import (
 
 // Dive! Part 1 computes the horizontal position and depth after a series of
 // commands are executed
-func DivePart1(filename string) int {
+func DivePart1(filename string) interface{} {
 	hPos := 0
 	depth := 0
 
@@ -39,7 +39,7 @@ func DivePart1(filename string) int {
 
 // Dive! Part 2 computes the horizontal position and depth after a series of
 // commands are executed with a different understanding of the command syntax
-func DivePart2(filename string) int {
+func DivePart2(filename string) interface{} {
 	hPos := 0
 	depth := 0
 	aim := 0

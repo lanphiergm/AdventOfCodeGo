@@ -5,7 +5,7 @@ import (
 )
 
 // Dumbo Octopus Part 1 computes the number of flashes that have occurred after 100 steps
-func DumboOctopusPart1(filename string) int {
+func DumboOctopusPart1(filename string) interface{} {
 	grid := parseGrid(filename)
 	flashCount := 0
 	for i := 0; i < 100; i++ {
@@ -16,7 +16,7 @@ func DumboOctopusPart1(filename string) int {
 
 // Dumbo Octopus Part 2 computes the first iteration where all octopodes flash
 // at the same time
-func DumboOctopusPart2(filename string) int {
+func DumboOctopusPart2(filename string) interface{} {
 	grid := parseGrid(filename)
 	i := 0
 	for {

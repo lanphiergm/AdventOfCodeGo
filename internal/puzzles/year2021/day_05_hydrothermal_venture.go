@@ -8,12 +8,12 @@ import (
 )
 
 // HydrothermalVenture Part 1 computes {part 1 description}
-func HydrothermalVenturePart1(filename string) int {
+func HydrothermalVenturePart1(filename string) interface{} {
 	return findDangerousAreas(filename, false)
 }
 
 // HydrothermalVenture Part 2 computes {part 2 description}
-func HydrothermalVenturePart2(filename string) int {
+func HydrothermalVenturePart2(filename string) interface{} {
 	return findDangerousAreas(filename, true)
 }
 

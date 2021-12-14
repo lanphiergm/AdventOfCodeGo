@@ -9,7 +9,7 @@ import (
 
 // Passage Pathing Part 1 computes the number of paths through the cave system if
 // small caves can be visited only once
-func PassagePathingPart1(filename string) int {
+func PassagePathingPart1(filename string) interface{} {
 	dsts := parsePaths(filename)
 	paths := findPathsTo(dsts, []string{",end"}, "end")
 	return len(paths)
@@ -17,7 +17,7 @@ func PassagePathingPart1(filename string) int {
 
 // Passage Pathing Part 2 computes the number of paths through the cave system if
 // a single small cave can be visited twice
-func PassagePathingPart2(filename string) int {
+func PassagePathingPart2(filename string) interface{} {
 	dsts := parsePaths(filename)
 	paths := findPathsToWithDoubleSmall(dsts, []string{",end"}, "end", false)
 	return len(paths)

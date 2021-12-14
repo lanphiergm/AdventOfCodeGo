@@ -7,7 +7,7 @@ import (
 )
 
 // Syntax Scoring Part 1 computes the syntax error score
-func SyntaxScoringPart1(filename string) int {
+func SyntaxScoringPart1(filename string) interface{} {
 	lines := utils.ReadStrings(filename)
 	score := 0
 	points := map[byte]int{
@@ -25,7 +25,7 @@ func SyntaxScoringPart1(filename string) int {
 }
 
 // Syntax Scoring Part 2 computes the middle autocomplete score
-func SyntaxScoringPart2(filename string) int {
+func SyntaxScoringPart2(filename string) interface{} {
 	lines := utils.ReadStrings(filename)
 	scores := []int{}
 	points := map[rune]int{

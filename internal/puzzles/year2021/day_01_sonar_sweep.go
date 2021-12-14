@@ -9,7 +9,7 @@ import (
 
 // Sonar Sweep Part 1 computes the number of times that a depth measurement
 // increases.
-func SonarSweepPart1(filename string) int {
+func SonarSweepPart1(filename string) interface{} {
 	depths := utils.ReadInts(filename)
 	prev := math.MaxInt32
 	incCount := 0
@@ -24,7 +24,7 @@ func SonarSweepPart1(filename string) int {
 
 // Sonar Sweep Part 2 computes the number of times that a sliding window of
 // three consecutive depths increases.
-func SonarSweepPart2(filename string) int {
+func SonarSweepPart2(filename string) interface{} {
 	depths := utils.ReadInts(filename)
 	incCount := 0
 	for i := 1; i < len(depths)-2; i++ {

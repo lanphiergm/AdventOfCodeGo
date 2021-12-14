@@ -7,7 +7,7 @@ import (
 )
 
 // GiantSquid Part 1 computes the score of the first winning board
-func GiantSquidPart1(filename string) int {
+func GiantSquidPart1(filename string) interface{} {
 	draws, boards := parseData(filename)
 	drawMap := make(map[int]struct{})
 	for i := range draws {
@@ -27,7 +27,7 @@ func GiantSquidPart1(filename string) int {
 }
 
 // GiantSquid Part 2 computes the score of the last winning board
-func GiantSquidPart2(filename string) int {
+func GiantSquidPart2(filename string) interface{} {
 	draws, boards := parseData(filename)
 	drawMap := make(map[int]struct{})
 	winners := make(map[int]struct{})

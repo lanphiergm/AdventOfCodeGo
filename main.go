@@ -46,7 +46,7 @@ func main() {
 	fmt.Printf(" Max duration: %.4fms\n", float32(max)/1000.0)
 }
 
-type puzzleFunc func(string) int
+type puzzleFunc func(string) interface{}
 
 func runPuzzle(year int, day int, part int, puzzle puzzleFunc) {
 	filename := fmt.Sprintf("data/year%v/day_%02v_puzzle_data.txt", year, day)
