@@ -37,6 +37,8 @@ func main() {
 	runPuzzle(2021, 12, 2, year2021.PassagePathingPart2)
 	runPuzzle(2021, 13, 1, year2021.TransparentOrigamiPart1)
 	runPuzzle(2021, 13, 2, year2021.TransparentOrigamiPart2)
+	runPuzzle(2021, 14, 1, year2021.ExtendedPolymerizationPart1)
+	runPuzzle(2021, 14, 2, year2021.ExtendedPolymerizationPart2)
 
 	min, mean, max := computeStats()
 	fmt.Printf("===============================================================\n")
