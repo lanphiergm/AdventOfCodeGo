@@ -18,45 +18,66 @@ func ChitonPart2(filename string) interface{} {
 }
 
 func relaxGrid(grid *[][]int) interface{} {
-	lenX := len((*grid)[0])
-	lenY := len(*grid)
-	distances := make(map[coord]int)
-	distances[coord{0, 0}] = 0
-	hasChanged := true
-	for hasChanged {
-		hasChanged = false
-		for i := 0; i < lenY; i++ {
-			for j := 0; j < lenX; j++ {
-				hasChanged = relaxAdjacent(grid, &distances, coord{j, i}) || hasChanged
+	distances := make(map[utils.Coord]int)
+	distances[utils.Coord{X: 0, Y: 0}] = 0
+	hasVisited := make(map[utils.Coord]bool)
+	queue := make([]node, 0)
+	queue = enqueueCoord(queue, utils.Coord{X: 0, Y: 0}, 0)
+	for len(queue) > 0 {
+		src := queue[0].Coord
+		queue = queue[1:]
+		if hasVisited[src] {
+			continue
+		}
+		hasVisited[src] = true
+		adjacents := make([]utils.Coord, 0)
+		if src.X > 0 { // left
+			adjacents = append(adjacents, utils.Coord{X: src.X - 1, Y: src.Y})
+		}
+		if src.X < len((*grid)[0])-1 { // right
+			adjacents = append(adjacents, utils.Coord{X: src.X + 1, Y: src.Y})
+		}
+		if src.Y > 0 { // up
+			adjacents = append(adjacents, utils.Coord{X: src.X, Y: src.Y - 1})
+		}
+		if src.Y < len(*grid)-1 { // down
+			adjacents = append(adjacents, utils.Coord{X: src.X, Y: src.Y + 1})
+		}
+		for _, dest := range adjacents {
+			if hasVisited[dest] {
+				continue
+			}
+			dist := distances[src] + (*grid)[dest.Y][dest.X]
+			if existingDist, found := distances[dest]; !found || dist < existingDist {
+				distances[dest] = dist
+				queue = enqueueCoord(queue, dest, dist)
 			}
 		}
 	}
-	return distances[coord{lenX - 1, lenY - 1}]
+	return distances[utils.Coord{X: len((*grid)[0]) - 1, Y: len(*grid) - 1}]
 }
 
-func relaxAdjacent(grid *[][]int, distances *map[coord]int, src coord) bool {
-	hasChanged := false
-	coords := make([]coord, 0)
-	if src.x > 0 { // left
-		coords = append(coords, coord{src.x - 1, src.y})
-	}
-	if src.x < len((*grid)[0])-1 { // right
-		coords = append(coords, coord{src.x + 1, src.y})
-	}
-	if src.y > 0 { // up
-		coords = append(coords, coord{src.x, src.y - 1})
-	}
-	if src.y < len(*grid)-1 { // down
-		coords = append(coords, coord{src.x, src.y + 1})
-	}
-	for _, dest := range coords {
-		dist := (*distances)[src] + (*grid)[dest.y][dest.x]
-		if existingDist, found := (*distances)[dest]; !found || dist < existingDist {
-			(*distances)[dest] = dist
-			hasChanged = true
+type node struct {
+	Coord utils.Coord
+	Dist  int
+}
+
+func enqueueCoord(queue []node, coord utils.Coord, dist int) []node {
+	newNode := node{Coord: coord, Dist: dist}
+	insertAt := len(queue)
+	for index, item := range queue {
+		if item.Dist > dist {
+			insertAt = index
+			break
 		}
 	}
-	return hasChanged
+
+	if len(queue) == insertAt {
+		return append(queue, newNode)
+	}
+	queue = append(queue[:insertAt+1], queue[insertAt:]...)
+	queue[insertAt] = newNode
+	return queue
 }
 
 func parseChitonGrid(filename string) [][]int {

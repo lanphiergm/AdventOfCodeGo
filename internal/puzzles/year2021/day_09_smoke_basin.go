@@ -50,7 +50,7 @@ func SmokeBasinPart2(filename string) interface{} {
 			if j < len(row)-1 && v >= utils.Btoi(row[j+1]) {
 				continue
 			}
-			coords := map[coord]struct{}{}
+			coords := map[utils.Coord]struct{}{}
 			findBasinCoords(data, coords, i, j)
 			basinSizes = append(basinSizes, len(coords))
 		}
@@ -59,15 +59,11 @@ func SmokeBasinPart2(filename string) interface{} {
 	return basinSizes[0] * basinSizes[1] * basinSizes[2]
 }
 
-type coord struct {
-	x, y int
-}
-
-func findBasinCoords(data []string, coords map[coord]struct{}, initialI int, initialJ int) {
-	if _, ok := coords[coord{initialI, initialJ}]; ok {
+func findBasinCoords(data []string, coords map[utils.Coord]struct{}, initialI int, initialJ int) {
+	if utils.ContainsCoord(coords, utils.Coord{X: initialI, Y: initialJ}) {
 		return
 	}
-	coords[coord{initialI, initialJ}] = struct{}{}
+	coords[utils.Coord{X: initialI, Y: initialJ}] = struct{}{}
 	for i := initialI - 1; i >= 0; i-- { // up
 		v := utils.Btoi(data[i][initialJ])
 		if v == 9 {

@@ -22,7 +22,7 @@ func TransparentOrigamiPart2(filename string) interface{} {
 	return translateCoords(coords)
 }
 
-func performFolds(coords map[coord]struct{}, folds []string) map[coord]struct{} {
+func performFolds(coords map[utils.Coord]struct{}, folds []string) map[utils.Coord]struct{} {
 	foldAt := utils.Atoi(strings.Split(folds[0], "=")[1])
 	if strings.HasPrefix(folds[0], "fold along x=") {
 		coords = performFoldX(coords, foldAt)
@@ -35,39 +35,39 @@ func performFolds(coords map[coord]struct{}, folds []string) map[coord]struct{} 
 	return coords
 }
 
-func performFoldX(coords map[coord]struct{}, foldAt int) map[coord]struct{} {
+func performFoldX(coords map[utils.Coord]struct{}, foldAt int) map[utils.Coord]struct{} {
 	for c := range coords {
-		if c.x == foldAt {
+		if c.X == foldAt {
 			delete(coords, c)
-		} else if c.x > foldAt {
-			coords[coord{2*foldAt - c.x, c.y}] = struct{}{}
+		} else if c.X > foldAt {
+			coords[utils.Coord{X: 2*foldAt - c.X, Y: c.Y}] = struct{}{}
 			delete(coords, c)
 		}
 	}
 	return coords
 }
 
-func performFoldY(coords map[coord]struct{}, foldAt int) map[coord]struct{} {
+func performFoldY(coords map[utils.Coord]struct{}, foldAt int) map[utils.Coord]struct{} {
 	for c := range coords {
-		if c.y == foldAt {
+		if c.Y == foldAt {
 			delete(coords, c)
-		} else if c.y > foldAt {
-			coords[coord{c.x, 2*foldAt - c.y}] = struct{}{}
+		} else if c.Y > foldAt {
+			coords[utils.Coord{X: c.X, Y: 2*foldAt - c.Y}] = struct{}{}
 			delete(coords, c)
 		}
 	}
 	return coords
 }
 
-func printCoords(coords map[coord]struct{}) {
+func printCoords(coords map[utils.Coord]struct{}) {
 	maxX := 0
 	maxY := 0
 	for c := range coords {
-		if c.x > maxX {
-			maxX = c.x
+		if c.X > maxX {
+			maxX = c.X
 		}
-		if c.y > maxY {
-			maxY = c.y
+		if c.Y > maxY {
+			maxY = c.Y
 		}
 	}
 	toPrint := make([][]bool, maxY+1)
@@ -75,7 +75,7 @@ func printCoords(coords map[coord]struct{}) {
 		toPrint[i] = make([]bool, maxX+1)
 	}
 	for c := range coords {
-		toPrint[c.y][c.x] = true
+		toPrint[c.Y][c.X] = true
 	}
 	for _, row := range toPrint {
 		for _, v := range row {
@@ -89,10 +89,10 @@ func printCoords(coords map[coord]struct{}) {
 	}
 }
 
-func translateCoords(coords map[coord]struct{}) string {
+func translateCoords(coords map[utils.Coord]struct{}) string {
 	var grid [6][39]bool
 	for c := range coords {
-		grid[c.y][c.x] = true
+		grid[c.Y][c.X] = true
 	}
 
 	code := ""
@@ -134,9 +134,9 @@ var letterU = [6][4]bool{{true, false, false, true}, {true, false, false, true},
 	{true, false, false, true}, {true, false, false, true}, {false, true, true, false}}
 var letters = map[[6][4]bool]string{letterE: "E", letterG: "G", letterH: "H", letterJ: "J", letterL: "L", letterU: "U"}
 
-func parseOrigamiData(filename string) (map[coord]struct{}, []string) {
+func parseOrigamiData(filename string) (map[utils.Coord]struct{}, []string) {
 	data := utils.ReadStrings(filename)
-	coords := make(map[coord]struct{})
+	coords := make(map[utils.Coord]struct{})
 	foldStart := 0
 	for i, c := range data {
 		if c == "" {
@@ -144,7 +144,7 @@ func parseOrigamiData(filename string) (map[coord]struct{}, []string) {
 			break
 		}
 		tmp := strings.Split(c, ",")
-		coords[coord{utils.Atoi(tmp[0]), utils.Atoi(tmp[1])}] = struct{}{}
+		coords[utils.Coord{X: utils.Atoi(tmp[0]), Y: utils.Atoi(tmp[1])}] = struct{}{}
 	}
 	return coords, data[foldStart:]
 }
