@@ -18,6 +18,14 @@ func GetExtrema(values []int) (int, int) {
 	return min, max
 }
 
+// Determines which of two values is smallest
+func Min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
 // Computes the sum of the first n positive integers
 // https://math.stackexchange.com/questions/2260/proof-1234-cdotsn-fracn-timesn12
 func Summorial(n int) int {

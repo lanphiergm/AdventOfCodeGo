@@ -41,6 +41,8 @@ func main() {
 	runPuzzle(2021, 14, 2, year2021.ExtendedPolymerizationPart2)
 	runPuzzle(2021, 15, 1, year2021.ChitonPart1)
 	runPuzzle(2021, 15, 2, year2021.ChitonPart2)
+	runPuzzle(2021, 16, 1, year2021.PacketDecoderPart1)
+	runPuzzle(2021, 16, 2, year2021.PacketDecoderPart2)
 
 	min, mean, max := computeStats()
 	fmt.Printf("===============================================================\n")
