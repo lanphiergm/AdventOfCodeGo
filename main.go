@@ -45,6 +45,8 @@ func main() {
 	runPuzzle(2021, 16, 2, year2021.PacketDecoderPart2)
 	runPuzzle(2021, 17, 1, year2021.TrickShotPart1)
 	runPuzzle(2021, 17, 2, year2021.TrickShotPart2)
+	runPuzzle(2021, 18, 1, year2021.SnailfishPart1)
+	runPuzzle(2021, 18, 2, year2021.SnailfishPart2)
 
 	min, mean, max := computeStats()
 	fmt.Printf("===============================================================\n")
